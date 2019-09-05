@@ -50,9 +50,24 @@ GROUP BY departments.dept_no, departments.dept_name ASC
 ORDER BY average_salary DESC
 LIMIT 1;
 
-SELECT departments.dept_name, employees.first_name, employees.last_name, salaries.salary
+SELECT employees.first_name, employees.last_name
 FROM dept_emp
 JOIN employees ON dept_emp.emp_no = employees.emp_no
-JOIN departments ON dept_emp.dept_no = departments.dept_no
-JOIN salary ON employees.emp_no = salary
+JOIN departments ON dept_emp.dept_no = departments.dept_no 
+AND dept_emp.dept_no = 'd001'
+JOIN salaries ON employees.emp_no = salaries.emp_no
+ORDER BY salary DESC
+LIMIT 1;
+
+SELECT employees.first_name,  employees.last_name,
+salaries.salary, departments.dept_name
+FROM dept_manager
+JOIN departments ON dept_manager.dept_no = departments.dept_no
+JOIN employees ON dept_manager.emp_no = employees.emp_no
+AND dept_manager.to_date = '9999-01-01'
+JOIN salaries ON dept_manager.emp_no = salaries.emp_no 
+AND salaries.to_date = '9999-01-01'
+ORDER BY salary DESC
+LIMIT 1;
+
 
