@@ -18,7 +18,8 @@ ORDER BY departments.dept_name ASC;
 
 SELECT titles.title, COUNT(*) as count FROM employees
 JOIN titles ON employees.emp_no = titles.emp_no AND titles.to_date = '9999-01-01'
-JOIN dept_emp ON employees.emp_no = dept_emp.emp_no AND dept_emp.dept_no = 'd009'
+JOIN dept_emp ON employees.emp_no = dept_emp.emp_no AND dept_emp.dept_no = 'd009' 
+AND dept_emp.to_date = '9999-01-01'
 GROUP BY titles.title;
 
 
