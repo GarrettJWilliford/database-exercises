@@ -14,9 +14,9 @@ first_name = 'Aamod'
 
 
 SELECT COUNT(*) FROM employees
-WHERE emp_no IN (
+WHERE emp_no NOT IN (
 SELECT emp_no FROM dept_emp WHERE
-to_date <> '9999-01-01');
+to_date = '9999-01-01');
 
 
 SELECT first_name, last_name FROM employees 
